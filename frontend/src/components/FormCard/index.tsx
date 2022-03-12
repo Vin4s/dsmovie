@@ -21,7 +21,7 @@ function FormCard({ movieId }: Props) {
             .then(response => {
                 SetMovie(response.data);
             });
-    })
+    }, [movieId])
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
@@ -46,7 +46,6 @@ function FormCard({ movieId }: Props) {
         }
 
         axios(config).then(response => {
-            console.log(response.data);
             navigate("/");
         });
     }

@@ -4,7 +4,6 @@ import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "utils/requests";
 import { MoviePage } from "Types/movie";
-import { setSourceMapRange } from "typescript";
 
 function Listing() {
 
@@ -26,11 +25,11 @@ function Listing() {
         axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
             .then(response => {
                 const data = response.data as MoviePage;
-                setPage(data)
+                setPage(data);
             });
     }, [pageNumber]);
 
-    const handlePageChange = (newPageNumber : number) => {
+    const handlePageChange = (newPageNumber: number) => {
         setPageNumber(newPageNumber);
     }
 
